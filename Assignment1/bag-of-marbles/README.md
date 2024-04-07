@@ -44,6 +44,7 @@ for now its only checks if the array gets larger than 10 if it will till that th
 // requirements meet
 
 1. what makes a marble 
+
 class Marble {
 public:
     string color;
@@ -56,7 +57,9 @@ public:
     }
 };
 
+
 2.  A way to add marbles
+
 void addMarble() {
         //checks if more marbles can be added
         if (count >= 10) {
@@ -73,7 +76,12 @@ void addMarble() {
         marbles[count++] = Marble(color, size);
         cout << "Marble added: Color = " << color << ", Size = " << size << endl;
     }
+
+
+
+
 3.     A way to remove marbles
+
  void removeMarble() {
         // checks if bag is empty 
         if (count <= 0) {
@@ -86,7 +94,10 @@ void addMarble() {
          //print for whats being removed
         cout << "Marble removed: Color = " << marbles[count].color << ", Size = " << marbles[count].size << endl;
     }
+
+
 4. Way to show that its working correctly, only has one test for now
+
  void testMarbles(){
 
         BagOfMarbles testbag;
