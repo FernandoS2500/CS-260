@@ -61,6 +61,7 @@ public:
 2.  A way to add marbles
 
 void addMarble() {
+    
         //checks if more marbles can be added
         if (count >= 10) {
             cout << "Bag is full." << endl;
@@ -80,9 +81,10 @@ void addMarble() {
 
 
 
-3.     A way to remove marbles
+3. A way to remove marbles
 
  void removeMarble() {
+
         // checks if bag is empty 
         if (count <= 0) {
             cout << "Bag is empty." << endl;
