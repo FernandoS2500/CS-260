@@ -63,6 +63,20 @@ public:
             cout << "Marble " << i+1 << ": Color = " << marbles[i].color << ", Size = " << marbles[i].size << endl;
         }
     }
+    // test unit
+    void testMarbles(){
+
+        BagOfMarbles testbag;
+        // test #1
+        // Simulate adding more than max marbles
+        count = 10;
+        testbag.addMarble(); 
+        count = 0;
+        
+        // test #2
+
+    }
+
 };
 // main loop
 int main() {
@@ -77,7 +91,8 @@ int main() {
              << "2. Remove a marble\n"
              << "3. Show all marbles\n"
              << "4. Exit\n"
-             << "Enter your choice (1-4): ";
+             << "5. Test Code\n"
+             << "Enter your choice (1-5): ";
         cin >> choice;
         // active function based of user choice
         switch (choice) {
@@ -93,8 +108,11 @@ int main() {
             case '4':
                 cout << "Good Bye." << endl;
                 return 0;
+            case '5':
+                bag.testMarbles();
+                break;
             default:
-                cout << "Please enter 1, 2, 3, or 4." << endl;
+                cout << "Please enter 1, 2, 3, 4, 5" << endl;
                 break;
         }
     }

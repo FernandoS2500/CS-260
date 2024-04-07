@@ -34,5 +34,9 @@ Enter 1-4 based of what you want to do
 After each function is finished running it will go back to main menu till the program 
 is exited.
 
+// added 5th option for start of some auto testing.
+for now its only checks if the array gets larger than 10 if it will till that the bag is full
+
+
 
 
