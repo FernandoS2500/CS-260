@@ -129,7 +129,7 @@ public:
 
 };
 // All Test functions
-void testBST() {
+void testBSTTraversal() {
     // startes by puting 10 hot sauces into tree
     BST bst;
     bst.insert(bst.root,"Sriracha", 2200); // meh
@@ -150,34 +150,61 @@ void testBST() {
     std::cout << std::endl;
     std::cout << std::endl;
 
+}
+
+void testBSTSearch() {
+    // startes by puting 10 hot sauces into tree
+    BST bst;
+    bst.insert(bst.root,"Sriracha", 2200); // meh
+    bst.insert(bst.root,"Tabasco", 3500); //okay
+    bst.insert(bst.root,"Cholula", 3600); // great
+    bst.insert(bst.root,"Frank's RedHot", 450); // sucks
+    bst.insert(bst.root,"Crystal", 800);  // n/a
+    bst.insert(bst.root,"Valentina", 900); // okay
+    bst.insert(bst.root,"Tapatío", 3000); // number one hot sauce
+    bst.insert(bst.root,"El Yucateco", 11600); //n/a
+    bst.insert(bst.root,"Louisiana", 450); //n/a
+    bst.insert(bst.root,"Dave's Insanity Sauce", 180000); // no thanks
+
+    
     // testing search function and the expected values returned
     int SHU;
     std::cout << "Search for 'Tabasco': " << (bst.search(bst.root,"Tabasco", SHU) ? "Found, SHU = " + to_string(SHU) : "Not Found") << endl;
     std::cout << std::endl;
-    std::cout << "Search for 'Sriracha': " << (bst.search(bst.root,"Sriracha", SHU) ? "Found, SHU = " + to_string(SHU) : "Not Found") << endl;
-    std::cout << std::endl;
     std::cout << "Search for 'Mega Sauce': " << (bst.search(bst.root,"Mega Sauce", SHU) ? "Found, SHU = " + to_string(SHU) : "Not Found") << endl;
     std::cout << std::endl;
 
+   
+}
+void testBSTRemoval() {
+    // startes by puting 10 hot sauces into tree
+    BST bst;
+    bst.insert(bst.root,"Sriracha", 2200); // meh
+    bst.insert(bst.root,"Tabasco", 3500); //okay
+    bst.insert(bst.root,"Cholula", 3600); // great
+    bst.insert(bst.root,"Frank's RedHot", 450); // sucks
+    bst.insert(bst.root,"Crystal", 800);  // n/a
+    bst.insert(bst.root,"Valentina", 900); // okay
+    bst.insert(bst.root,"Tapatío", 3000); // number one hot sauce
+    bst.insert(bst.root,"El Yucateco", 11600); //n/a
+    bst.insert(bst.root,"Louisiana", 450); //n/a
+    bst.insert(bst.root,"Dave's Insanity Sauce", 180000); // no thanks
+
+    
     // test removing hot sauce and checking if it in fact gone on high sauce so back
     std::cout << "Removing 'Tabasco'\n";
     std::cout << std::endl;
     bst.remove(bst.root,3500);
-    std::cout << "In-order traversal after removal:\n";
+    std::cout << " after removal:\n";
     bst.inOrderTraversal(bst.root);
     std::cout << std::endl;
     std::cout << std::endl;
-    // testing front side sauce removal
-    std::cout << "Removing 'Frank's RedHot'\n";
-    std::cout << std::endl;
-    bst.remove(bst.root,450);
-    std::cout << "In-order traversal after removal:\n";
-    bst.inOrderTraversal(bst.root);
-    std::cout << std::endl;
-    std::cout << std::endl;
+   
 }
 // runs test funtions
 int main() {
-    testBST();
+    testBSTTraversal();
+    testBSTSearch();
+    testBSTRemoval();
     return 0;
 }

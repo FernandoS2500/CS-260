@@ -10,12 +10,11 @@ Node* next;   // Pointer to the next node
  };
 
 
-class List {
-private:
+class pokemonList {
+public:
     Node* head;   // Pointer to the head of the list
 
-public:
-    List() {
+    pokemonList() {
         head = nullptr;
     }
 
@@ -114,13 +113,13 @@ public:
             // position tracking
             index++;
         }
-        return -1; // Return -1 if not found
+        return -1; // Return -1  when not found
     }
 };
 
 // Test functions
 void testAutoSortingList() {
-    List pokedex;
+    pokemonList pokedex;
 
     //  Pokémon
     cout << "alphabetical Pokémon List\n";
@@ -163,10 +162,10 @@ void testAutoSortingList() {
     // Test search function
     // searchs at end and being because they are easy to spot and it test head and rest of nodes
     cout << "\nTesting search function:\n";
-    cout << "Index of 'Zubat': " << pokedex.search("Zubat") << endl;
-    cout << "Index of 'Abra': " << pokedex.search("Abra") << endl;
+    cout << "position of 'Zubat': " << pokedex.search("Zubat") << endl;
+    cout << "position of 'Abra': " << pokedex.search("Abra") << endl;
     // testing not found
-    cout << "Index of 'MissingNo': " << pokedex.search("MissingNo") << endl; // Should be -1
+    cout << "postion of 'MissingNo': " << pokedex.search("MissingNo") << endl; // Should be -1
     std::cout << std::endl;
 
     // Test remove function
@@ -178,6 +177,7 @@ void testAutoSortingList() {
     cout << "Removing 'MissingNo': " << (pokedex.remove("MissingNo") ? "Success" : "Failed") << endl; // Should  fail
     std::cout << std::endl;
     // check if removal worked
+    cout << "\nPokemon list with removed\n";
     pokedex.print();
     std::cout << std::endl;
 }
