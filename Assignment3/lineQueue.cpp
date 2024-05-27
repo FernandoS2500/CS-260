@@ -1,7 +1,7 @@
 #include <iostream>
 
-class Queue {
-private:
+class lineQueue {
+public:
     // Node  to store elements in
     struct Node {
         int data;     // Data
@@ -10,14 +10,14 @@ private:
 
     Node* front;     // Pointer to the front 
     Node* back;      // Pointer to the back
-    int count;       // keep track of elements 
+    int counter;       // keep track of elements 
 
-public:
+
     // start the queue
-    Queue() {
+    lineQueue() {
         front = nullptr; // set to null for both
         back = nullptr;
-        count = 0;       // starts at zero
+        counter = 0;       // starts at zero
     }
 
 
@@ -28,18 +28,18 @@ public:
         newNode->next = nullptr; // sets pointer to null
 
         // sets whats the  pointer goes to next
-        if (isEmpty()) {      // empty
+        if (front == nullptr) {      // empty
             front = newNode;
         } else {
             back->next = newNode; // back
         }
         back = newNode;  
-        count++;     // adds to the count
+        counter++;     // adds to the count
     }
 
     // removes and returns the front element of the queue
     int dequeue() {  // what happens if it is empty
-        if (isEmpty()) {
+        if (front == nullptr) {
             std::cout << "Queue is empty." << std::endl;
             return -1; // Return an error value
         }
@@ -48,66 +48,75 @@ public:
         int value = front->data; // gets data 
         front = front->next; // moves pointer over
         delete temp; // deletes
-        count--;   // lowers the count by one.
+        counter--;   // lowers the count by one.
 
         //sets back to null when empty
-        if (isEmpty()) {
+        if (front == nullptr) {
             back = nullptr;
         }
 
         return value;
     }
 
-    // checks if the queue is empty
-    bool isEmpty() {
-        return front == nullptr; // does this by checking if front is null
-    }
-
+    
     // Checks the number of elements in the queue
     int size() {
-        return count;
+        return counter;
     }
 
     // looks at the front element 
     int peek() {
         // if empty return txt
-        if (isEmpty()) {
+        if (front == nullptr) {
             std::cout << "Queue is empty." << std::endl;
-            return -1; // Return an error value
         }
         return front->data;
     }
 };
 
 // Test functions
-void testQueue() {
-    // makes que list
-    Queue q;
-    // test 1  adds two times to que
-    std::cout << "Testing enqueue and size..." << std::endl;
-    q.enqueue(1);
-    q.enqueue(2);
-    // test size funtion 
-    std::cout << "Expected size: 2, Actual size: " << q.size() << std::endl;
-    // tests the peek function
-    std::cout << "Testing peek..." << std::endl;
-    std::cout << "Expected front: 1, Actual front: " << q.peek() << std::endl;
-    // testing dequeue 
-    std::cout << "Testing dequeue..." << std::endl;
-    std::cout << "Expected dequeue: 1, Actual dequeue: " << q.dequeue() << std::endl;
-    std::cout << "Expected size: 1, Actual size: " << q.size() << std::endl;
-    // removes a second one for tesing
-    std::cout << "Expected dequeue: 2, Actual dequeue: " << q.dequeue() << std::endl;
-    std::cout << "Expected size: 0, Actual size: " << q.size() << std::endl;
-    // checks if its empty
-    std::cout << "Expected isEmpty: 1, Actual isEmpty: " << q.isEmpty() << std::endl;
 
-    std::cout << "Testing dequeue on empty queue..." << std::endl;
-    q.dequeue();
+void testenQueueSize() {
+    // makes que list
+    lineQueue testsize;
+    // test 1  adds two times to que
+    std::cout << "Testing enqueue and size" << std::endl;
+    testsize.enqueue(1);
+    testsize.enqueue(2);
+    // test size funtion 
+    std::cout << "Expected: 2, value: " << testsize.size() << std::endl;
+    std::cout << std::endl;
+}
+
+void testPeek() {
+    // makes que list
+    lineQueue testpeek;
+    // test 1  adds two times to que
+    testpeek.enqueue(1);
+    testpeek.enqueue(2);
+    // tests the peek function
+    std::cout << "Testing peek" << std::endl;
+    std::cout << "Expected: 1, value : " << testpeek.peek() << std::endl;
+    std::cout << std::endl;
+}
+
+void testDequeue() {
+    // makes que list
+    lineQueue testdequeue;
+    // adds 1
+    testdequeue.enqueue(1);
+     // testing dequeue 
+    std::cout << "Testing dequeue" << std::endl;
+    std::cout << "Expected : 1, value : " << testdequeue.dequeue() << std::endl;
+    // runes a second time to check if its empty
+    std::cout << "Expected : is empty, value : " << testdequeue.dequeue() << std::endl;
+    std::cout << std::endl;
 }
 
 // runs the tests for the functions
 int main() {
-    testQueue();
+    testenQueueSize();
+    testPeek();
+    testDequeue();
     return 0;
 }
